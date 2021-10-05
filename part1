@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class MainClass {
 
-	private static long[][] A, L, Lt, M;
+	private static int[][] A, L, Lt, M;
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int input = in.nextInt();
-		A = new long[input][input];
-		L = new long[input][input];
-		Lt = new long[input][input];
-		M = new long[input][input];
+		A = new int[input][input];
+		L = new int[input][input];
+		Lt = new int[input][input];
+		M = new int[input][input];
 
 		fillMatrix(input);
 		showMatrix(input, A);
@@ -31,7 +31,7 @@ public class MainClass {
 		}
 	}
 
-	public static long factorial(int number) {
+	public static int factorial(int number) {
 		int result = 1;
 		for (int factor = 2; factor <= number; factor++) {
 			result *= factor;
@@ -39,7 +39,7 @@ public class MainClass {
 		return result;
 	}
 
-	private static void showMatrix(int N, long[][] matrix) {
+	private static void showMatrix(int N, int[][] matrix) {
 		for(int i = 0; i < N; i++) {
 			for(int j = 0; j < N; j++) {
 				System.out.print(matrix[i][j] + "\t");
@@ -51,7 +51,7 @@ public class MainClass {
 
 	private static void choleskyAlgorithm(int N) {
 		for (int i = 0; i < N; i++) {
-			A[i][i] = (long) Math.sqrt(A[i][i]);
+			A[i][i] = (int) Math.sqrt(A[i][i]);
 			for (int j = i+1; j < N; j++) {
 				A[j][i] = A[j][i]/A[i][i];
 			}
